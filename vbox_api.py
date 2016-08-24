@@ -32,10 +32,11 @@ def _execute_process(args):
            methods = ['GET'])
 def get_vm_status(vm):
     running_vms = get_running_vms()
-    if vm not in running_vms:
+    vm_name = get_vm_bymac_address(vm)
+    if vm_name not in running_vms:
         print "VM %s is off" %vm
         return "off"
-    elif vm in running_vms:
+    elif vm_name in running_vms:
         print "VM %s is running" %vm
         return "on"
     else:
